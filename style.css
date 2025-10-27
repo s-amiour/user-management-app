@@ -1,0 +1,8 @@
+.load-container {
+    padding: 0 50px 50px 50px;
+    justify-content: left;
+    align-items: center;
+}
+.margin {
+    margin: 20px;
+}
