@@ -37,8 +37,6 @@ A vanilla JavaScript application for managing user data with real-time updates a
 │       └── putData.js
 ```
 
-![User manager](./Screenshot.png)
-
 ## API Configuration
 
 The application connects to: https://easy-simple-users-rest-api.onrender.com/api/users
