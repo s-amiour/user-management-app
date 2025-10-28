@@ -4,7 +4,7 @@ export const putData = async (remoteUrl, userData) => {
         // fetch(URI, dict of http data)
         const response = await fetch(userUri, {
             method: "PUT",
-            header: {
+            headers: {
                 "Content-Type": "application/json",
                 my_key: "my_super_secret_phrase"
             },
@@ -13,14 +13,12 @@ export const putData = async (remoteUrl, userData) => {
         if (!response.ok){
             throw new Error(`HTTP error; status: ${response.status}`);
         }
+        // Separation of concerns: the function both performs network IO. 
+        // better to return the result and let the caller update the UI - keep putData free of UI changes
         const data = await response.json();
-        document.querySelector(".modal-body").innerHTML = `
-        <div class="d-flex justify-content-center align-items-center" style="height: 312px;">
-            <div class="alert alert-success" role="alert">${data.message}</div>
-        </div>
-        `;
-    } catch (error){
-        console.log(error);
-        throw error;
+        return data;
+    } catch (err){
+        console.error("PUT HTTP method failed:", err);
+        throw err;  // rethrow so caller catches it
     }
 };
