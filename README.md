@@ -1,4 +1,9 @@
 # User Management Application
+```
+Semester: S3
+Course: Advanced Web Development
+Course code: PROG_WEB2
+```
 
 A vanilla JavaScript application for managing user data with real-time updates and no page refreshes.
 
